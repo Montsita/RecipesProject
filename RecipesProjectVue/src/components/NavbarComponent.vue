@@ -5,7 +5,11 @@ import { ref } from 'vue'
 
   const username = ref('')
   const pass = ref('')
+  const isFormVisible = ref(false);
   
+  const toggleForm = () => {
+  isFormVisible.value = !isFormVisible.value;
+}
 </script>
 
 <template>
@@ -22,7 +26,7 @@ import { ref } from 'vue'
     </router-link>
     <div class="logging-container">
       <form @submit.prevent="recipeStore.login(username, pass)" class="login-form">
-        <div class="inputs">
+        <div class="inputs" :class="{ 'show': isFormVisible }">
           <div class="form-group">
             <input
               type="text"
@@ -31,6 +35,7 @@ import { ref } from 'vue'
               required
               placeholder="Username"
               v-model="username"
+              @focus="isFormVisible = true"
             />
           </div>
           <div class="form-group">
@@ -41,6 +46,7 @@ import { ref } from 'vue'
               required
               placeholder="Password"
               v-model="pass"
+              @focus="isFormVisible = true"
             />
           </div>
           <button type="submit">Login</button>
@@ -70,7 +76,7 @@ header {
 
 .logo {
   max-height: 70px;
-  width: 90px;
+  width: auto;
   border-radius: 20px;
 }
 
@@ -93,7 +99,7 @@ nav {
   padding: 5px 15px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  height: 50px;
+  height: auto;
 }
 
 .inputs {
@@ -106,6 +112,7 @@ nav {
 label {
   margin-bottom: 5px;
 }
+
 
 input {
   padding: 10px;
@@ -127,5 +134,27 @@ button {
 
 button:hover {
   background-color: rgb(90, 120, 155);
+}
+
+@media (max-width: 768px) {
+
+
+  .inputs {
+    margin-top: 50px;
+    flex-direction: column; 
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    padding: 8px; 
+    font-size: 14px; 
+  }
+  
+  input {
+    padding: 8px; 
+    font-size: 14px; 
+  }
 }
 </style>

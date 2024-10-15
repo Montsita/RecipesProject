@@ -105,7 +105,7 @@ section {
 
 .container {
   max-width: 1050px;
-  margin-top: 80px;
+  margin-top: 0 auto;
   padding: 0 20px;
 }
 
@@ -375,4 +375,9 @@ h3{
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  }
 </style>

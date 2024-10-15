@@ -8,22 +8,22 @@ recipeStore.fetchRecipe()
 
 <template>
   <section class="top-part">
-    <div class="top">
-      <h1>RECETAS</h1>
-      <h2>Todas nuestras recetas a tu alcance</h2>
-      <h3>Si solo te interesan recetas vegetarianas, pulsa este botón</h3>
-      <button>Recetas vegetarianas</button>
-    </div>
-  </section> 
-  
-  <section class="container-cards">
-    <div class="space-cards">
-      <RecipeCard
-        v-for="recipe in recipeStore.arrayRecipes"
-        :recipes="recipe"
-      ></RecipeCard>
-    </div>
-  </section>
+  <div class="top">
+    <h1>RECIPES</h1>
+    <h2>All our recipes at your fingertips</h2>
+    <h3>If you are only interested in vegetarian recipes, click this button</h3>
+    <button>Vegetarian Recipes</button>
+  </div>
+</section>
+
+<section class="container-cards">
+  <div class="space-cards">
+    <RecipeCard
+      v-for="recipe in recipeStore.arrayRecipes"
+      :recipes="recipe"
+    ></RecipeCard>
+  </div>
+</section>
 </template>
 
 <style scoped>
@@ -56,12 +56,15 @@ button {
     cursor: pointer; 
     border-radius: 5px; 
     transition: background-color 0.3s ease; 
-    width: 50%; 
+    /* width: 50%;  */
+    width: 100%;
+    max-width: 300px;
 }
+
 .container-cards{
-  margin: 60px;
-  margin-left: 180px;
-  margin-right: 180px;
+
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
 .space-cards {
@@ -72,11 +75,47 @@ button {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 2.5rem;
 }
 
 p {
   width: 80%;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem; 
+  }
+
+  h2 {
+    font-size: 1.5rem; 
+  }
+
+  button {
+    width: 90%; 
+  }
+
+  .container-cards {
+    margin: 20px; 
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem; 
+  }
+
+  h2 {
+    font-size: 1.2rem; 
+  }
+
+  h3 {
+    font-size: 1rem; 
+  }
+
+  .space-cards {
+    gap: 10px; 
+  }
 }
 </style>

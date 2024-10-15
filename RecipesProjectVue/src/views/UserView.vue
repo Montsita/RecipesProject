@@ -103,8 +103,8 @@ button:hover {
 }
 
 .recipe-user img{
-  width: 500px; 
-  height: 500px; 
+  width: 70%; 
+  height: 400px; 
   object-fit: cover; 
   border-radius: 5px;
   margin-bottom: 15px;
@@ -118,11 +118,14 @@ h2 {
 }
 
 .recipe-user img.icon {
-  cursor: pointer; 
-  max-width: 20%; 
-  height: auto;
-  
-  transition: transform 0.2s ease;
+ cursor: pointer; 
+  transition: transform 0.2s ease; 
+  width: 20%; 
+  max-width: auto; 
+  height: auto; 
+  object-fit: cover; 
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 
 .icon:hover {
@@ -156,6 +159,29 @@ p {
   color: #777;
   text-align: center;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px; 
+  }
+
+  h2 {
+    font-size: 24px; 
+  }
+
+  button {
+    padding: 8px 16px; 
+    font-size: 14px; 
+  }
+
+  p {
+    font-size: 14px; 
+  }
+
+  .options {
+    flex-direction: column;
+  }
 }
 
 </style>

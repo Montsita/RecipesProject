@@ -144,4 +144,22 @@ button:hover {
 .radio-group input {
   margin-right: 0.5rem;
 }
+
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  input, textarea {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+}
 </style>

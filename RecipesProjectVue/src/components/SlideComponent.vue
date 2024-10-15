@@ -20,7 +20,6 @@ const props = defineProps({
     </div>
     <figcaption>
     <span class="credit">{{ props.recipes.name }}</span>
-    <!-- poner aqui nombre del usuario que la ha hecho -->
     <p class="recipe-metadata">
         <span class="recipe-rating">★★★★<span>☆</span></span>
         <span class="recipe-votes">(12 votes)</span>
@@ -39,11 +38,16 @@ h1, h2, h3, h4, h5, p, span{
 }
 
 figcaption {
-  align-self: flex-end;
+  /* align-self: flex-end;
   padding: 20px 20px 0 20px;
   flex: 0 0 auto;
   width: 25%;
-  min-width: 150px;
+  min-width: 150px; */
+  align-self: flex-end;
+  padding: 20px;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 300px;
 }
 
 figure {
@@ -73,5 +77,33 @@ button:hover {
 .fixed{
   height: 500px;
   width: 850px;
+}
+
+@media (max-width: 768px) {
+  figcaption {
+    width: 100%; 
+  }
+
+  .recipe-rating {
+    font-size: 0.9rem; 
+  }
+
+  .recipe-votes {
+    font-size: 0.9rem; 
+  }
+
+  button {
+    font-size: 14px; 
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2, h3, h4, h5, p {
+    font-size: 0.9rem; 
+  }
+
+  button {
+    padding: 8px; 
+  }
 }
 </style>
