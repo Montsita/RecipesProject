@@ -1,132 +1,134 @@
 # RECIPE PROJECT VUE
-# Descripción
 
-Este proyecto es una aplicación de libro de recetas en línea que ofrece a los usuarios la posibilidad de crear, modificar y eliminar recetas de manera sencilla y accesible. Los usuarios pueden registrarse, iniciar sesión y gestionar sus recetas favoritas de manera efectiva.
+# Description
 
-La aplicación está construida con **Vue.js**, utilizando **Vue Router** para facilitar la navegación entre diferentes vistas, y **Pinia** para la gestión del estado de la aplicación. Este enfoque asegura que los usuarios tengan un control total sobre sus contenidos, permitiendo que solo puedan modificar o eliminar recetas que ellos mismos han creado.
+This project is an online recipe book application that offers users the ability to create, modify, and delete recipes in a simple and accessible manner. Users can register, log in, and effectively manage their favorite recipes.
 
-## Funcionalidades Clave:
-- **Registro/Iniciar Sesión**: Los usuarios pueden registrarse o iniciar sesión para acceder a su colección de recetas.
-- **Crear Receta**: Ofrece un formulario intuitivo para que los usuarios puedan agregar nuevas recetas a su repertorio.
-- **Modificar Receta**: Los usuarios pueden realizar cambios en sus recetas directamente desde su perfil.
-- **Eliminar Receta**: Brinda la opción de eliminar esas recetas suyas que ya no deseen conservar.
+The application is built with **Vue.js**, using **Vue Router** to facilitate navigation between different views, and **Pinia** for state management. This approach ensures that users have full control over their content, allowing them to only modify or delete recipes they have created themselves.
 
-## Arquitectura del proyecto
-A continuación muestro la estructura mental antes de iniciar el proyecto:
+## Key Features:
+- **Register/Log In**: Users can register or log in to access their collection of recipes.
+- **Create Recipe**: Provides an intuitive form for users to add new recipes to their repertoire.
+- **Modify Recipe**: Users can make changes to their recipes directly from their profile.
+- **Delete Recipe**: Offers the option to delete recipes that they no longer wish to keep.
 
-0. **Funcionalidad**
-    - Página principal
-        - Registro
-        - Presentación de recetas
-        - Acceder a más recetas
+## Project Architecture
+
+Below is the mental structure before starting the project:
+
+0. **Functionality**
+    - Main page
+        - Registration
+        - Recipe presentation
+        - Access to more recipes
 1. **Stores**
-    - RecipesStore -> API para recibir recetas
-2. **Rutas y Views**
-    - `/` -> HOME -> Presentación 
-        - DENTRO ACCEDO A REGISTRO 
-            - Aparecen mis recetas y las recetas guardadas favoritas
-        - CREAR USUARIO NUEVO
+    - RecipesStore -> API to receive recipes
+2. **Routes and Views**
+    - `/` -> HOME -> Presentation 
+        - INSIDE ACCESS TO REGISTRATION 
+            - My recipes and favorite saved recipes appear
+        - CREATE NEW USER
     - `/list` -> LIST-RECIPES -> All recipes 
-        - `/list/id/details` ACCEDO DETALLES RECIPES
-        - AGREGAR O MODIFICAR RECETA
-3. **Componentes**
-    - Recipe Card -> F: Añadir, ocultar, borrar
-    - SearchBar -> F: Filtrar y reordenar
+        - `/list/id/details` ACCESS RECIPE DETAILS
+        - ADD OR MODIFY RECIPE
+3. **Components**
+    - Recipe Card -> F: Add, hide, delete
+    - SearchBar -> F: Filter and reorder
     - Favourite recipes
-    - Header y Footer
+    - Header and Footer
 
-## Objetos
+## Objects
 
-### Producto
-El objeto producto viene definido, desde el back, por la siguiente forma: 
+### Product
+The product object is defined from the backend as follows: 
 
 ![alt text](image.png)
 
-## Tecnologías Utilizadas
+## Technologies Used
 
-Este proyecto ha sido desarrollado utilizando una variedad de tecnologías y lenguajes que facilitan la creación y gestión de la aplicación de libro de recetas. A continuación, se detallan las herramientas utilizadas y su propósito:
+This project has been developed using a variety of technologies and languages that facilitate the creation and management of the recipe book application. Below are the tools used and their purpose:
 
 ### Frontend
-- **Vue.js**: Un framework progresivo de JavaScript para construir interfaces de usuario. Permite crear aplicaciones interactivas de manera eficiente.
-- **Vue Router**: Biblioteca para la navegación en aplicaciones Vue.js. Facilita la gestión de las rutas y vistas de la aplicación.
-- **Pinia**: Un almacén de estado para aplicaciones Vue.js que permite gestionar el estado de la aplicación de manera reactiva y sencilla.
+- **Vue.js**: A progressive JavaScript framework for building user interfaces. It allows for the efficient creation of interactive applications.
+- **Vue Router**: A library for navigation in Vue.js applications. It facilitates the management of routes and views within the application.
+- **Pinia**: A state store for Vue.js applications that enables reactive and straightforward state management.
 
 ### Backend
-- **Node.js**: Entorno de ejecución de JavaScript en el servidor que permite ejecutar código JavaScript fuera del navegador.
-- **Express**: Un framework de Node.js que facilita la creación de aplicaciones web y APIs, proporcionando un conjunto robusto de características para manejar rutas y middleware.
-- **JSON Web Tokens (JWT)**: Método de autenticación basado en tokens que permite a los usuarios iniciar sesión y acceder a funcionalidades protegidas de la aplicación de manera segura.
+- **Node.js**: A JavaScript runtime environment on the server that allows for executing JavaScript code outside of the browser.
+- **Express**: A Node.js framework that simplifies the creation of web applications and APIs, providing a robust set of features for handling routes and middleware.
+- **JSON Web Tokens (JWT)**: A token-based authentication method that allows users to log in and securely access protected functionalities of the application.
 
-### Base de Datos
-- **Base de Datos NoSQL (ej. MongoDB)**: Para almacenar las recetas y datos de usuarios. Se utiliza un enfoque flexible y escalable para manejar los datos.
+### Database
+- **NoSQL Database (e.g., MongoDB)**: Used to store recipes and user data. A flexible and scalable approach is utilized for data handling.
 
-### Otros
-- **HTML/CSS**: Lenguajes utilizados para la estructura y el diseño de la interfaz de usuario.
-- **JavaScript**: Lenguaje de programación utilizado tanto en el frontend como en el backend para manejar la lógica de la aplicación.
+### Others
+- **HTML/CSS**: Languages used for the structure and design of the user interface.
+- **JavaScript**: A programming language used on both the frontend and backend to manage the application logic.
 
-Estas tecnologías trabajan juntas para ofrecer una experiencia de usuario fluida y una gestión efectiva de los datos, asegurando que los usuarios puedan interactuar con la aplicación de manera intuitiva.
+These technologies work together to provide a smooth user experience and effective data management, ensuring that users can interact with the application intuitively.
 
 ## FrontEnd
 
-### Estructura del Proyecto
+### Project Structure
 
-#### Vistas de la Aplicación
-- **HomeView.vue**: Vista de bienvenida que muestra una introducción a la aplicación y un carrusel de recetas destacadas.
-- **RecipeListView.vue**: Vista que muestra una lista de todas las recetas disponibles en la aplicación.
-- **RecipeDetailView.vue**: Vista que muestra los detalles de una receta específica.
-- **RecipeFormUserView.vue**: Vista que permite a los usuarios registrarse o iniciar sesión.
-- **CreateRecipeView.vue**: Vista que permite a los usuarios crear nuevas recetas.
-- **ModifyRecipeView.vue**: Vista que permite a los usuarios modificar recetas existentes.
-- **UserView.vue**: Vista que muestra las recetas creadas por el usuario y opciones para modificarlas o eliminarlas.
+#### Application Views
+- **HomeView.vue**: Welcome view that displays an introduction to the application and a carousel of featured recipes.
+- **RecipeListView.vue**: View that shows a list of all recipes available in the application.
+- **RecipeDetailView.vue**: View that shows the details of a specific recipe.
+- **RecipeFormUserView.vue**: View that allows users to register or log in.
+- **CreateRecipeView.vue**: View that allows users to create new recipes.
+- **ModifyRecipeView.vue**: View that allows users to modify existing recipes.
+- **UserView.vue**: View that shows the recipes created by the user and options to modify or delete them.
 
-#### Componentes
-- **NavbarComponent.vue**: Componente de la barra de navegación.
-- **FooterComponent.vue**: Componente del pie de página.
-- **CreateRecipeComponent.vue**: Componente para crear recetas.
-- **UpdateRecipeComponent.vue**: Componente para actualizar recetas.
-- **SlideComponent.vue**: Componente para mostrar recetas en un carrusel.
-- **RecipeCardComponent.vue**: Componente que muestra las tarjetas de recetas.
+#### Components
+- **NavbarComponent.vue**: Navigation bar component.
+- **FooterComponent.vue**: Footer component.
+- **CreateRecipeComponent.vue**: Component for creating recipes.
+- **UpdateRecipeComponent.vue**: Component for updating recipes.
+- **SlideComponent.vue**: Component for displaying recipes in a carousel.
+- **RecipeCardComponent.vue**: Component that displays recipe cards.
 
-### Almacenamiento (Store)
-- **Recipes Store**: Utiliza Pinia para manejar el estado de las recetas, incluyendo la creación, obtención, modificación y eliminación de recetas.
+### Storage (Store)
+- **Recipes Store**: Uses Pinia to manage the state of recipes, including creation, retrieval, modification, and deletion of recipes.
 
-### Rutas (Router)
-Las rutas de la aplicación están definidas en el archivo `router/index.js`, que incluye las siguientes:
+### Routes (Router)
+The application's routes are defined in the `router/index.js` file, which includes the following:
 
-- `/`: Ruta de inicio que carga **HomeView**.
-- `/list`: Ruta que carga **RecipeListView**.
-- `/details/:id`: Ruta que carga **RecipeDetailView** para ver detalles de una receta específica.
-- `/form-user`: Ruta para el registro e inicio de sesión del usuario.
-- `/create`: Ruta para crear una nueva receta.
-- `/modify/:id`: Ruta para modificar una receta existente.
-- `/user`: Ruta para mostrar las recetas del usuario.
+- `/`: Home route that loads **HomeView**.
+- `/list`: Route that loads **RecipeListView**.
+- `/details/:id`: Route that loads **RecipeDetailView** to view details of a specific recipe.
+- `/form-user`: Route for user registration and login.
+- `/create`: Route for creating a new recipe.
+- `/modify/:id`: Route for modifying an existing recipe.
+- `/user`: Route for displaying the user's recipes.
 
 ## Backend
 
-El backend de la aplicación está construido con **Node.js** y **Express**, y proporciona una API RESTful para gestionar las recetas y los usuarios.
+The backend of the application is built with **Node.js** and **Express**, providing a RESTful API for managing recipes and users.
 
-### Estructura del Backend
+### Backend Structure
 
 #### API Endpoints:
-- **Usuarios**:
-  - `POST /api/users/register`: Registra un nuevo usuario.
-  - `GET /api/users/name/:id`: Obtiene información de un usuario por su ID.
-  - `POST /api/login`: Autentica a un usuario y genera un token de acceso.
+- **Users**:
+  - `POST /api/users/register`: Registers a new user.
+  - `GET /api/users/name/:id`: Retrieves information about a user by their ID.
+  - `POST /api/login`: Authenticates a user and generates an access token.
 
-- **Recetas**:
-  - `GET /api/recipes`: Obtiene todas las recetas.
-  - `POST /api/recipes`: Crea una nueva receta (solo para usuarios autenticados).
-  - `GET /api/recipes/:id`: Obtiene los detalles de una receta específica.
-  - `PATCH /api/recipes/change/:id/:username`: Modifica una receta existente (solo si fue creada por el usuario autenticado).
-  - `DELETE /api/recipes/delete/:id/:username`: Elimina una receta existente (solo si fue creada por el usuario autenticado).
+- **Recipes**:
+  - `GET /api/recipes`: Retrieves all recipes.
+  - `POST /api/recipes`: Creates a new recipe (only for authenticated users).
+  - `GET /api/recipes/:id`: Retrieves the details of a specific recipe.
+  - `PATCH /api/recipes/change/:id/:username`: Modifies an existing recipe (only if created by the authenticated user).
+  - `DELETE /api/recipes/delete/:id/:username`: Deletes an existing recipe (only if created by the authenticated user).
 
-### Autenticación
-La autenticación de usuarios se realiza a través de un sistema de tokens **JWT** (JSON Web Tokens), que permite que los usuarios inicien sesión y obtengan un token para acceder a las funcionalidades protegidas de la aplicación.
+### Authentication
+User authentication is performed through a **JWT** (JSON Web Tokens) token system, allowing users to log in and obtain a token to access the protected functionalities of the application.
 
-## Contribuciones
-Si deseas contribuir al proyecto, por favor sigue estos pasos:
+## Contributions
+If you would like to contribute to the project, please follow these steps:
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (git checkout -b nueva-funcionalidad).
-3. Realiza tus cambios y haz commit (git commit -m 'Añadir nueva funcionalidad').
-4. Haz push a la rama (git push origin nueva-funcionalidad).
-5. Abre un Pull Request.
+1. Fork the repository.
+2. Create a new branch (git checkout -b new-feature).
+3. Make your changes and commit (git commit -m 'Add new feature').
+4. Push to the branch (git push origin new-feature).
+5. Open a Pull Request.
