@@ -100,7 +100,6 @@ export const useRecipesStore = defineStore("recipes", () => {
 
   async function modifyRecipe(id, updatedRecipe) {
     try {
-      console.log(username.value);
       const response = await fetch(`${baseRecipesURL}/change/${id}/${user.value.username}`, {
         method: "PATCH",
         headers: {
@@ -153,7 +152,6 @@ export const useRecipesStore = defineStore("recipes", () => {
         throw new Error(errorData.message || "Registration failed");
       }
       const data = await response.json();
-      console.log("User registered successfully!", data);
       router.push("/user");
     } catch (error) {
       console.error(`Error: ${error.message}`);

@@ -1,36 +1,41 @@
 <script setup>
-import { useRouter } from 'vue-router';
 import { useRecipesStore } from "@/stores/Recipes";
-import UserRecipesComponent from '@/components/UserRecipesComponent.vue';
 
 const recipeStore = useRecipesStore();
-recipeStore.fetchRecipe();
-
+const props = defineProps({
+  recipes: {
+    type: Object,
+    required: true,
+  }
+});
 </script>
-
 <template>
-  <section>
-    <h1>Welcome to your space</h1>
-    <h3>Here you can access your favorite recipes</h3>
-    <button>Favorite Recipes</button>
-    <h3>Do you have a recipe you want to share with us? Go ahead!</h3>
-    <RouterLink to="/create">
-      <button>Create Recipe</button>
-    </RouterLink>
-    <h3>
-      Here you have all the recipes you've created in case you need to modify
-      them or want to delete them
-    </h3>
-    <div class="recipes-user">
-      <UserRecipesComponent
-      v-for="recipe in recipeStore.arrayRecipes"
-      :recipes="recipe"
-    ></UserRecipesComponent>
-    </div>
-    
-  </section>
-</template>
+<section>
+    <div class="recipe-user">
+      <img :src="props.recipes.image" alt="Imagen de {{ props.recipes.name }}" />
+      <h2>{{ props.recipes.name }}</h2>
 
+      <div class="options">
+    
+        <div class="delete">
+          <img
+            @click="recipeStore.deleteRecipe(props.recipes.recipe_id)"
+            src="/bin.png"
+            alt="bin"
+            class="icon"
+          />
+          <p>Delete recipe</p>
+        </div>
+        <div class="modify">
+          <RouterLink :to="`/modify/${props.recipes.recipe_id}`">
+            <img src="/modify.png" alt="bin" class="icon" />
+            <p>Modify recipe</p>
+          </RouterLink>
+        </div>
+      </div>
+    </div>
+</section>
+</template>
 <style scoped>
 section {
   max-width: 900px;
