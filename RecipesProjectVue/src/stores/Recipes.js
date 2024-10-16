@@ -27,6 +27,9 @@ export const useRecipesStore = defineStore("recipes", () => {
       const newRecipe = await response.json();
       myRecipes.value.push(newRecipe);
       arrayRecipes.value.push(newRecipe);
+
+      alert("Recipe created successfully!");
+      router.push("/user");
     } catch (error) {
       console.error("Error creating recipes:", error);
     }
@@ -152,6 +155,7 @@ export const useRecipesStore = defineStore("recipes", () => {
         throw new Error(errorData.message || "Registration failed");
       }
       const data = await response.json();
+      alert('Registration successful');
       router.push("/user");
     } catch (error) {
       console.error(`Error: ${error.message}`);
@@ -162,23 +166,22 @@ export const useRecipesStore = defineStore("recipes", () => {
     try {
       const response = await fetch('http://localhost:8080/api/login' + "?username=" + username + "&password=" + password)
       if (!response.ok) {
-        throw new Error('Error en la respuesta del servidor: ' + response.status);
+        throw new Error('Error in the server response: ' + response.status);
       }
       const data = await response.json();
 
       if (data.access_token) {
         localStorage.setItem('token', data.access_token);
         
-        // Almacenar username e id en el objeto user
         user.value.username = username; 
-        alert('Login exitoso');
+        alert('Login successful');
         router.push('/user');
       } else {
-        throw new Error('Token no recibido en la respuesta');
+        throw new Error('Token not received in the response');
       }
     } catch (error) {
       console.error(error);
-      alert('Usuario o contraseña incorrectos');
+      alert('Incorrect username or password');
     }
   }
 

@@ -95,6 +95,11 @@ button:hover {
   button {
     font-size: 14px; 
   }
+  .fixed{
+  height: 500px;
+  width: 850px;
+  transform: translateX(-80px);
+}
 }
 
 @media (max-width: 480px) {

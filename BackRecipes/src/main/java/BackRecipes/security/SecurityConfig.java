@@ -74,7 +74,6 @@ public class SecurityConfig {
         return http.build();
     }
 
-    //aqui estoy probando el registro
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();

@@ -376,8 +376,47 @@ h3{
 }
 
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
+  .product-show{
+    width: 100%;
+  }
+  .product-show h1 {
+    font-size: 2rem; /* Smaller font size for h1 */
+  }
+
+  .product-show p,
+  .product-show h3 {
+    font-size: 1rem; /* Smaller font size for text */
+    padding: 0 10px; /* Add padding for better spacing */
+  }
+
+  .product-show button {
+    width: 100%; /* Full width button on smaller screens */
+    font-size: 1rem; /* Adjust font size for button */
+  }
+
+.container{
+  width: 100%;
+  height: 100%;
+}
+
+.carousel__slide {
+  position: relative;
+  display: block;
+  flex: 1 0 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 300ms ease-out;
+  vertical-align: top;
+  box-sizing: border-box;
+  white-space: normal;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   }
 </style>
