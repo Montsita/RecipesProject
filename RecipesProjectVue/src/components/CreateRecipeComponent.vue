@@ -8,7 +8,13 @@ const recipe = ref({
   ingredients: '',
   instructions: '',
   image: '',
-  vegetarian: ''
+  vegetarian: '',
+  minutes: '',
+  num_ingredients: '',
+  servings: '',
+  madeBy:{
+    username: ''
+  }
 })
 
 function createRecipe() {
@@ -54,7 +60,7 @@ function createRecipe() {
       </div>
 
     <label for="madeBy">Made by</label>
-    <input type="text" id="madeBy" v-model="recipe.madeBy" required>
+    <input type="text" id="madeBy" v-model="recipe.madeBy.username" required>
     <button type="submit">Create recipe</button>
   </form>
 </template>

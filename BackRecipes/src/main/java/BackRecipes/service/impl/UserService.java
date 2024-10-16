@@ -52,6 +52,10 @@ public class UserService implements UserServiceInterface, UserDetailsService{
         return userRepository.findIdByUsername(username);
     }
 
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
     public User save(User user) {
         return userRepository.save(user);
     }

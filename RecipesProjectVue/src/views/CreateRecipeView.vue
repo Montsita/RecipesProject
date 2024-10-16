@@ -4,7 +4,7 @@ import UpdateRecipeComponent from "@/components/CreateRecipeComponent.vue";
 
 <template>
   <section>
-    <h1>Bienvenido a crear receta</h1>
+    <h1>Welcome to create recipe</h1>
     <UpdateRecipeComponent></UpdateRecipeComponent>
   </section>
 </template>

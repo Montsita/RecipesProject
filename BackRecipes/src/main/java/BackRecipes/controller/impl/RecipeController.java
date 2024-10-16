@@ -1,6 +1,7 @@
 package BackRecipes.controller.impl;
 
 import BackRecipes.model.Recipe;
+import BackRecipes.model.User;
 import BackRecipes.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,6 +41,8 @@ public class RecipeController {
 
     @PostMapping
     public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
+        User user = userService.findByUsername(recipe.getMadeBy().getUsername());
+        recipe.setMadeBy(user);
         Recipe newRecipe = recipeService.save(recipe);
         return ResponseEntity.ok(newRecipe);
     }
@@ -53,7 +56,6 @@ public class RecipeController {
 
             recipe.setRecipe_id(id);
 
-            // Comprobar si el username de la receta coincide con el username autenticado
             if (!recipe.getMadeBy().getUsername().equalsIgnoreCase(username)) {
                 System.out.println(recipe.getMadeBy().getUsername());
                 System.out.println(username);
@@ -69,21 +71,18 @@ public class RecipeController {
 
     @DeleteMapping("/delete/{id}/{username}")
     public ResponseEntity<Void> deleteRecipe(@PathVariable String username, @PathVariable Long id) {
-        // Recuperar la receta por id
         Recipe recipe = recipeService.findById(id);
 
         if (recipe == null) {
-            return ResponseEntity.notFound().build(); // Si no se encuentra la receta, devuelve 404
+            return ResponseEntity.notFound().build();
         }
 
-        // Comprobar si el username de la receta coincide con el username autenticado
         if (!recipe.getMadeBy().getUsername().equalsIgnoreCase(username)) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build(); // Devuelve 403 si no coincide
         }
 
-        // Si coincide, proceder a eliminar la receta
         recipeService.deleteById(id);
 
-        return ResponseEntity.ok().build(); // Devuelve 200 OK
+        return ResponseEntity.ok().build();
     }
 }

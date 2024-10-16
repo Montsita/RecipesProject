@@ -13,7 +13,6 @@ export const useRecipesStore = defineStore("recipes", () => {
   const baseUsersURL = "http://localhost:8080/api/users";
 
   async function createRecipe(recipe) {
-    console.log(recipe.vegetarian);
     try {
       const response = await fetch(baseRecipesURL, {
         method: "POST",
