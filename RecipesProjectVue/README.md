@@ -1,4 +1,5 @@
 # RECIPE PROJECT VUE
+Repositorio realizado por: https://www.linkedin.com/in/montse-cobes-orteu-31b058233/
 
 # Description
 
